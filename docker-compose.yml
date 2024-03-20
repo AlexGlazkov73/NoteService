@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    build: ./src
+    build: .
     container_name: note_service
     command: entrypoint.sh
     depends_on:

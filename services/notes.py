@@ -10,7 +10,11 @@ class NoteService:
     :param encryption_service: A service for encrypting the text of the note
     """
 
-    def __init__(self, note_repo: AbstractRepository, encryption_service: AbstractEncryption):
+    def __init__(
+            self,
+            note_repo: AbstractRepository,
+            encryption_service: AbstractEncryption
+    ):
         self.repo = note_repo()
         self.encryption_service = encryption_service()
 

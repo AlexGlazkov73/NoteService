@@ -12,5 +12,6 @@ class Base(DeclarativeBase):
 class Note(Base):
     __tablename__ = 'notes'
 
-    id = mapped_column(UUID, primary_key=True, comment='Идентификатор записки', default=uuid4)
+    id = mapped_column(UUID, primary_key=True,
+                       comment='Идентификатор записки', default=uuid4)
     text = mapped_column(String, comment='Текст записки')

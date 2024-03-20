@@ -30,7 +30,8 @@ class EncryptionMeta(Singleton, ABCMeta):
 
 
 class Encryption(AbstractEncryption, metaclass=EncryptionMeta):
-    """Data encryption service. Saves the encryption key in the project root directory.
+    """Data encryption service.
+    Saves the encryption key in the project root directory.
     It is needed to encrypt and decrypt data"""
 
     def __init__(self):

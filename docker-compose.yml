@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    build: .
+    container_name: note_service
+    command: entrypoint.sh
+    depends_on:
+      - postgres
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "8000:8000"
+    environment:
+      DB_HOST: note_service_db
+      DB_PORT: 5432
+      DB_NAME: note_service
+      DB_USER: note_service
+      DB_PWD: note_service
+    healthcheck:
+      test: curl --fail http://localhost:8000 || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 3
+  postgres:
+    image: postgres:16-alpine
+    container_name: note_service_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: note_service
+      POSTGRES_DB: note_service
+      POSTGRES_PASSWORD: note_service
